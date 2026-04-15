@@ -1,7 +1,62 @@
 [
   {
-    "title": "example",
-    "tags": ["js", "fetch"],
-    "code": "console.log('hi')"
+    "title": "fetch json api",
+    "tags": ["js", "http", "fetch", "api"],
+    "code": "async function getData(url) {\n  const res = await fetch(url);\n  return await res.json();\n}\n\ngetData('https://example.com/api').then(console.log);"
+  },
+  {
+    "title": "post json request",
+    "tags": ["js", "http", "fetch", "post", "api"],
+    "code": "async function postData(url, data) {\n  const res = await fetch(url, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify(data)\n  });\n  return await res.json();\n}\n"
+  },
+  {
+    "title": "node read file",
+    "tags": ["node", "fs", "file"],
+    "code": "const fs = require('fs');\n\nfs.readFile('input.txt', 'utf8', (err, data) => {\n  if (err) throw err;\n  console.log(data);\n});"
+  },
+  {
+    "title": "node write file",
+    "tags": ["node", "fs", "file"],
+    "code": "const fs = require('fs');\n\nfs.writeFile('out.txt', 'hello world', err => {\n  if (err) throw err;\n  console.log('saved');\n});"
+  },
+  {
+    "title": "node append file",
+    "tags": ["node", "fs", "file"],
+    "code": "const fs = require('fs');\n\nfs.appendFile('log.txt', 'new line\\n', err => {\n  if (err) throw err;\n  console.log('appended');\n});"
+  },
+  {
+    "title": "python loop",
+    "tags": ["python", "loop"],
+    "code": "for i in range(10):\n    print(i)"
+  },
+  {
+    "title": "python read file",
+    "tags": ["python", "file"],
+    "code": "with open('input.txt', 'r') as f:\n    data = f.read()\n    print(data)"
+  },
+  {
+    "title": "regex match",
+    "tags": ["regex", "string", "parse"],
+    "code": "const text = 'hello 123 world';\nconst match = text.match(/\\d+/);\nconsole.log(match[0]);"
+  },
+  {
+    "title": "debounce function",
+    "tags": ["js", "utils", "performance"],
+    "code": "function debounce(fn, delay) {\n  let t;\n  return (...args) => {\n    clearTimeout(t);\n    t = setTimeout(() => fn(...args), delay);\n  };\n}"
+  },
+  {
+    "title": "sleep function",
+    "tags": ["js", "async", "utils"],
+    "code": "const sleep = ms => new Promise(res => setTimeout(res, ms));\n\nawait sleep(1000);"
+  },
+  {
+    "title": "json pretty print",
+    "tags": ["js", "json", "utils"],
+    "code": "function pretty(obj) {\n  return JSON.stringify(obj, null, 2);\n}\n\nconsole.log(pretty({a:1,b:2}));"
+  },
+  {
+    "title": "simple http server node",
+    "tags": ["node", "http", "server"],
+    "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.end('hello world');\n});\n\nserver.listen(3000);"
   }
 ]
