@@ -1,62 +1,54 @@
-[
-  {
-    "title": "fetch json api",
-    "tags": ["js", "http", "fetch", "api"],
-    "code": "async function getData(url) {\n  const res = await fetch(url);\n  return await res.json();\n}\n\ngetData('https://example.com/api').then(console.log);"
-  },
-  {
-    "title": "post json request",
-    "tags": ["js", "http", "fetch", "post", "api"],
-    "code": "async function postData(url, data) {\n  const res = await fetch(url, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify(data)\n  });\n  return await res.json();\n}\n"
-  },
-  {
-    "title": "node read file",
-    "tags": ["node", "fs", "file"],
-    "code": "const fs = require('fs');\n\nfs.readFile('input.txt', 'utf8', (err, data) => {\n  if (err) throw err;\n  console.log(data);\n});"
-  },
-  {
-    "title": "node write file",
-    "tags": ["node", "fs", "file"],
-    "code": "const fs = require('fs');\n\nfs.writeFile('out.txt', 'hello world', err => {\n  if (err) throw err;\n  console.log('saved');\n});"
-  },
-  {
-    "title": "node append file",
-    "tags": ["node", "fs", "file"],
-    "code": "const fs = require('fs');\n\nfs.appendFile('log.txt', 'new line\\n', err => {\n  if (err) throw err;\n  console.log('appended');\n});"
-  },
-  {
-    "title": "python loop",
-    "tags": ["python", "loop"],
-    "code": "for i in range(10):\n    print(i)"
-  },
-  {
-    "title": "python read file",
-    "tags": ["python", "file"],
-    "code": "with open('input.txt', 'r') as f:\n    data = f.read()\n    print(data)"
-  },
-  {
-    "title": "regex match",
-    "tags": ["regex", "string", "parse"],
-    "code": "const text = 'hello 123 world';\nconst match = text.match(/\\d+/);\nconsole.log(match[0]);"
-  },
-  {
-    "title": "debounce function",
-    "tags": ["js", "utils", "performance"],
-    "code": "function debounce(fn, delay) {\n  let t;\n  return (...args) => {\n    clearTimeout(t);\n    t = setTimeout(() => fn(...args), delay);\n  };\n}"
-  },
-  {
-    "title": "sleep function",
-    "tags": ["js", "async", "utils"],
-    "code": "const sleep = ms => new Promise(res => setTimeout(res, ms));\n\nawait sleep(1000);"
-  },
-  {
-    "title": "json pretty print",
-    "tags": ["js", "json", "utils"],
-    "code": "function pretty(obj) {\n  return JSON.stringify(obj, null, 2);\n}\n\nconsole.log(pretty({a:1,b:2}));"
-  },
-  {
-    "title": "simple http server node",
-    "tags": ["node", "http", "server"],
-    "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.end('hello world');\n});\n\nserver.listen(3000);"
-  }
-]
+,
+{"title":"debounce function js","tags":["js","utils","performance"],"code":"function debounce(fn,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms);};}"},
+{"title":"throttle function js","tags":["js","utils","performance"],"code":"function throttle(fn,ms){let last=0;return(...a)=>{const now=Date.now();if(now-last>ms){last=now;fn(...a);}}}"},
+{"title":"array unique js","tags":["js","array","utils"],"code":"const unique=a=>[...new Set(a)];"},
+{"title":"shuffle array js","tags":["js","array","random"],"code":"function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}"},
+{"title":"deep clone js","tags":["js","object","utils"],"code":"const clone=o=>structuredClone(o);"},
+{"title":"object keys","tags":["js","object"],"code":"const keys=Object.keys(obj);"},
+{"title":"object values","tags":["js","object"],"code":"const vals=Object.values(obj);"},
+{"title":"object entries","tags":["js","object"],"code":"const pairs=Object.entries(obj);"},
+{"title":"delay fetch","tags":["js","fetch","async"],"code":"async function delayedFetch(url,ms){await new Promise(r=>setTimeout(r,ms));return fetch(url);}"},
+{"title":"scroll to top","tags":["js","dom"],"code":"window.scrollTo({top:0,behavior:'smooth'});"},
+{"title":"detect dark mode","tags":["js","web"],"code":"const dark=window.matchMedia('(prefers-color-scheme: dark)').matches;"},
+{"title":"get random array item","tags":["js","array","random"],"code":"const pick=a=>a[Math.floor(Math.random()*a.length)];"},
+{"title":"capitalize string","tags":["js","string"],"code":"const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);"},
+{"title":"truncate string","tags":["js","string"],"code":"const trunc=(s,n)=>s.length>n?s.slice(0,n)+'…':s;"},
+{"title":"format bytes","tags":["js","utils"],"code":"function bytes(b){const u=['B','KB','MB','GB'];let i=0;while(b>=1024&&i<u.length-1){b/=1024;i++;}return b.toFixed(1)+u[i];}"},
+{"title":"node read file","tags":["node","fs"],"code":"const fs=require('fs');const data=fs.readFileSync('file.txt','utf8');"},
+{"title":"node write file","tags":["node","fs"],"code":"const fs=require('fs');fs.writeFileSync('file.txt','hello');"},
+{"title":"node http server","tags":["node","http"],"code":"require('http').createServer((q,r)=>{r.end('hello');}).listen(8080);"},
+{"title":"node env var","tags":["node","env"],"code":"const port=process.env.PORT||3000;"},
+{"title":"node json read","tags":["node","json"],"code":"const data=require('./file.json');"},
+{"title":"python list files","tags":["python","fs"],"code":"import os\nprint(os.listdir('.'))"},
+{"title":"python sleep","tags":["python","time"],"code":"import time\ntime.sleep(1)"},
+{"title":"python random choice","tags":["python","random"],"code":"import random\nprint(random.choice([1,2,3]))"},
+{"title":"python write file","tags":["python","file"],"code":"with open('file.txt','w') as f:\n f.write('hello')"},
+{"title":"python read file","tags":["python","file"],"code":"with open('file.txt') as f:\n print(f.read())"},
+{"title":"python http server","tags":["python","web"],"code":"python -m http.server 8000"},
+{"title":"bash make directory","tags":["bash","linux"],"code":"mkdir new_folder"},
+{"title":"bash remove directory","tags":["bash","linux"],"code":"rm -rf folder"},
+{"title":"bash copy file","tags":["bash","linux"],"code":"cp file1 file2"},
+{"title":"bash move file","tags":["bash","linux"],"code":"mv old new"},
+{"title":"bash count lines","tags":["bash","linux"],"code":"wc -l file.txt"},
+{"title":"bash disk usage","tags":["bash","linux"],"code":"du -sh *"},
+{"title":"bash show processes","tags":["bash","linux"],"code":"ps aux"},
+{"title":"bash kill process","tags":["bash","linux"],"code":"kill -9 PID"},
+{"title":"html boilerplate","tags":["html","web"],"code":"<!doctype html>\n<html>\n<head>\n<meta charset='utf-8'>\n<title>page</title>\n</head>\n<body>\n</body>\n</html>"},
+{"title":"css center flex","tags":["css","layout"],"code":".center{display:flex;align-items:center;justify-content:center;}"},
+{"title":"css grid layout","tags":["css","layout"],"code":".grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}"},
+{"title":"css hide scrollbar","tags":["css","ui"],"code":"::-webkit-scrollbar{display:none;}"},
+{"title":"regex number","tags":["regex"],"code":"/\\d+/"},
+{"title":"regex url","tags":["regex"],"code":"/https?:\\/\\/[^\\s]+/"},
+{"title":"regex hex color","tags":["regex"],"code":"/#(?:[0-9a-fA-F]{3}){1,2}/"},
+{"title":"regex ipv4","tags":["regex"],"code":"/\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b/"},
+{"title":"base64 encode js","tags":["js","encoding"],"code":"btoa('hello')"},
+{"title":"base64 decode js","tags":["js","encoding"],"code":"atob(str)"},
+{"title":"date now js","tags":["js","time"],"code":"const now=Date.now();"},
+{"title":"format date js","tags":["js","time"],"code":"new Date().toISOString();"},
+{"title":"set interval","tags":["js","time"],"code":"setInterval(()=>console.log('tick'),1000);"},
+{"title":"clear interval","tags":["js","time"],"code":"clearInterval(id);"},
+{"title":"promise example","tags":["js","async"],"code":"new Promise(r=>r(1)).then(console.log);"},
+{"title":"async function","tags":["js","async"],"code":"async function run(){const r=await fetch(url);}"},
+{"title":"node cli args","tags":["node","cli"],"code":"const args=process.argv.slice(2);"},
+{"title":"node exit","tags":["node"],"code":"process.exit(0);"},
+{"title":"node cwd","tags":["node"],"code":"console.log(process.cwd());"}
